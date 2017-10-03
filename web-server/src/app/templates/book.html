@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="col-xs-12 col-lg-9">
+    <p class="float-right d-md-none">
+    <button type="button" class="btn btn-primary btn-sm" data-toggle="offcanvas">Toggle nav</button>
+    </p>
+    
+    <div class="jumbotron">
+        <h1>Open Book</h1>
+        <p>Check live open orders from different cryptocurrency exchanges for Bitcoin (BTC) and Ethereum (ETH).
+        Orders are only priced in USD.<br>
+        Current available exchanges are:
+        <ul>
+            <li>Coinbase/GDAX</li>
+            <li>Bitfinex</li>
+            <li>CEX.IO</li>
+            <li>OkCoin</li>
+        </ul>
+        </p>
+    </div>
+    
+    <div class="row">
+        <div class="col-xs-12 col-lg-12">
+            <h2>Select exchanges and cryptocurrency</h2>
+            <form class="form-horizontal", action="book" method="POST">
+                <b>Exchanges:</b>
+                <label class="checkbox-inline col-lg-2"><input type="checkbox" name='markets' value="coinbase" id='coinbase' checked>Coinbase</label>
+                <label class="checkbox-inline col-lg-2"><input type="checkbox" name='markets' value="bitfinex" checked>Bitfinex</label>
+                <label class="checkbox-inline col-lg-2"><input type="checkbox" name='markets' value="cexio" checked>CEX.IO</label>
+                <label class="checkbox-inline col-lg-2"><input type="checkbox" name='markets' value="okcoin" checked>OkCoin</label>
+                <br>
+                <b>Currency:</b>
+                <label class="radio-inline col-lg-2"><input type="radio" name="currency" value="btc" checked>BTC-USD  </label>
+                <label class="radio-inline col-lg-2"><input type="radio" name="currency" value="eth">ETH-USD</label>
+                <br>
+                <b>Orders to show:</b>
+                <label><select class="form-control" name="numTop" id="numTop" style="width: 75px;">
+                        <option value="5">5</option>
+                        <option value="10">10</option>
+                        <option value="20">25</option>
+                    </select></label>
+<!--                <button type="submit" class="btn btn-primary btn-sm" value="submit" name="submit" id="submit">Submit</button>-->
+            </form>
+        </div>
+        <div class="col-6">
+            <p><b>Highest bids:</b>
+            <br>
+            <span id="bids">Loading ...</span>
+            </p>
+        </div>
+        <div class="col-6">
+            <p><b>Lowest asks:</b>
+            <br>
+            <span id="asks">Loading ...</span>
+            </p>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-xs-12 col-lg-6">
+<!--            <div id="chartBuys" style="min-width: 310px; width:100%; height: 400px; margin: 0 auto"></div>-->
+                <div id="chartBuys" style="width:100%; margin: 0 auto;"></div>
+        </div>
+        
+        <div class="col-xs-12 col-lg-6">
+            <div id="chartAsks" style="min-width: 310px; width:100%; height: 400px; margin: 0 auto"></div>
+        </div>
+    </div>
+</div><!--/span-->
+
+<!-- Highcharts or highstock JS -->
+<!--        <script src="https://code.highcharts.com/highcharts.js"></script>-->
+<script src="https://code.highcharts.com/stock/highstock.js" defer="defer"></script>
+
+<!-- Highcharts Theme -->
+<script src="https://code.highcharts.com/themes/dark-unica.js" defer="defer"></script>
+
+<!-- first chart -->
+<script src="{{ url_for('static', filename='js/highcharts1.js') }}"></script>
+
+<!-- second chart -->
+<!--<script src="{{ url_for('static', filename='js/highcharts2.js') }}"></script>-->
+
+<!-- get data -->
+<script src="{{ url_for('static', filename='js/getForm.js') }}"></script>
+{% endblock %}

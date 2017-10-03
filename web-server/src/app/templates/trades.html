@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="col-6 col-md-9">
+    <p class="float-right d-md-none">
+    <button type="button" class="btn btn-primary btn-sm" data-toggle="offcanvas">Toggle nav</button>
+    </p>
+    
+    <div class="jumbotron">
+        <h1>Trades and Historical data</h1>
+        <p>Check real-time trades as well as historical trading data from different cryptocurrency exchanges for Bitcoin (BTC) and Ethereum (ETH).
+        Orders are only priced in USD.<br>
+        Current available exchanges are:
+        <ul>
+            <li>Coinbase/GDAX</li>
+            <li>Bitfinex</li>
+            <li>CEX.IO</li>
+            <li>OkCoin</li>
+        </ul>
+        </p>
+    </div>
+    
+    <div class="row">
+        <div class="col-12 col-lg-12">
+            <h2>Select exchanges and cryptocurrency</h2>
+            <form class="form-horizontal", action="#">
+                Exchanges:
+                <label class="checkbox-inline col-lg-2"><input type="checkbox" value="gdax">Coinbase</label>
+                <label class="checkbox-inline col-lg-2"><input type="checkbox" value="bitfinex">Bitfinex</label>
+                <label class="checkbox-inline col-lg-2"><input type="checkbox" value="cexio">CEX.IO  </label>
+                <label class="checkbox-inline col-lg-2"><input type="checkbox" value="okcoin">OkCoin</label>
+                <br>
+                Currency:
+                <label class="radio-inline col-lg-2"><input type="radio" name="btc">BTC-USD  </label>
+                <label class="radio-inline  col-lg-2"><input type="radio" name="eth">ETH-USD</label>
+                <br>
+                <input type="submit" class="btn btn-primary btn-sm" value="Submit">
+            </form>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-6 col-lg-6">
+            <div id="chart1" style="width:100%;"></div>
+        </div>
+        
+        <div class="col-6 col-lg-6">
+            <div id="chart2" style="width:100%;"></div>
+        </div>
+    </div>
+</div><!--/span-->
+
+<!-- Highcharts or highstock JS -->
+<!--        <script src="https://code.highcharts.com/highcharts.js"></script>-->
+<script src="https://code.highcharts.com/stock/highstock.js" defer="defer"></script>
+
+<!-- Highcharts Theme -->
+<script src="https://code.highcharts.com/themes/dark-unica.js" defer="defer"></script>
+
+<!-- first chart -->
+<script src="{{ url_for('static', filename='js/highcharts1.js') }}"></script>
+
+<!-- second chart -->
+<script src="{{ url_for('static', filename='js/highcharts2.js') }}"></script>
+{% endblock %}

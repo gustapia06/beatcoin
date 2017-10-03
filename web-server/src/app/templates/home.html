@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="col-xs-12 col-lg-9">
+    <p class="float-right d-md-none">
+    <button type="button" class="btn btn-primary btn-sm" data-toggle="offcanvas">Toggle nav</button>
+    </p>
+    
+    <div class="jumbotron">
+        <h1>Welcome to <b>₿[ea]tcoin</b>!</h1>
+        <p>A tool for real-time cryptocurrency trading analyzing live data from different exchanges to enable traders with up-to-date information for fast tradin.<br>
+        B[ea]tcoin supports different cryptocurrency exchanges and trading for both Bitcoin and Ethereum currencies to USD.</p>
+    </div>
+    
+    <div class="row">
+        <div class="col-xs-12 col-lg-6">
+            <h2>Open Book</h2>
+            <p>This feature provides with real-time open book for different exchanges such that traders are informed of the current open orders and take action if needed. </p>
+            <p><a class="btn btn-secondary" href="/book" role="button">View details &raquo;</a></p>
+        </div><!--/span-->
+        
+        <div class="col-xs-12 col-lg-6">
+            <h2>Trades</h2>
+            <p>This feature provides with up-to-date information about trades happening in the different exchanges, as a tool for historical analysis for traders to see trends, movement and volatility of rates. </p>
+            <p><a class="btn btn-secondary" href="/trades" role="button">View details &raquo;</a></p>
+        </div><!--/span-->
+    </div><!--/row-->
+</div><!--/span-->
+{% endblock %}

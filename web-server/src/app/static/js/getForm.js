@@ -17,10 +17,9 @@ $(function() {
             currency: $('input[name="currency"]:checked').val(),
             num: $('#numTop').val()
             }, function(data) {
-//            $('#bids').append('<ol id="bids-1"></ol>');
-//            $('#bids-1').append('<li>'+data['bids'][0]+'</li>');
-            console.log(data);
-            /*
+
+//            console.log(data);
+            
             for (var I = 0; I < 2; I++)
             {
                 key = Object.keys(data)[I];
@@ -32,7 +31,7 @@ $(function() {
                     $('#'+key+'Col').append(nameList);
                 }
             }
-            
+            /*
             if (typeof chart === 'undefined') {
                 chart = getBuysChart(data.Buys);
             } else {

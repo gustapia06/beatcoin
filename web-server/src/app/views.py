@@ -35,12 +35,11 @@ def getPrices(db,side,markets,numElements):
         top = db.zrange(key,0,numElements-1)
 
     dataPrices = {}
-    for market in markets:
-        dataPrices[market] = []
-        msgs = db.zrange(market,0,-1)
-        for msg in msgs:
-            dataPrices[market].append(db.hmget(msg,'price','amount'))
-
+#    for market in markets:
+#        dataPrices[market] = []
+#        msgs = db.zrange(market,0,-1)
+#        for msg in msgs:
+#            dataPrices[market].append(db.hmget(msg,'price','amount'))
     return top, dataPrices
 
 @app.route('/')
@@ -90,7 +89,7 @@ def getBookData():
 #        dataPlot[market] = sorted(fake, key=lambda x: x[0])
     print(top_buy)
 
-    return jsonify(bids=top_buy_fmt, asks=low_sell_fmt, Buys=dataBuys, Sells=dataSells, product=currency.upper())
+    return jsonify(bids=top_buy_fmt, asks=low_sell_fmt)#, Buys=dataBuys, Sells=dataSells, product=currency.upper())
 #data = {bids=[list of top bids for markets], asks=[list of lowest ask for markets], data={'market': [[price,amount],[p2,a2],...], ...} }
 
 @app.route('/trades')

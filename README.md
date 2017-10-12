@@ -51,8 +51,8 @@ To start B[ea]tcoin, there are several steps that need to be executed, however t
 The complete back-end was tested to analyze how many messages it could process, and on average, 5,000 messages (total and balanced for every topic) are successfully processed every second with no scheduling delays. This benchmark was run with a cluster consisting of 1 master and 3 worker nodes on m4.large EC2 instances.
 
 ## Demo
-The presentation is available [here](#).
-The video for demo is available [here](#).
+The presentation is available [here](https://drive.google.com/open?id=0B4JSY7CzxKlwWUdWOVFyX0MwY00).
+The video for demo is available [here](http://youtu.be/xmxOe01nYi8).
 
 ---
 > Gustavo Tapia. Insight Data Engineering - NYC Fall 2017
